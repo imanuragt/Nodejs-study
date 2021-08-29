@@ -5,7 +5,7 @@ const pathLoacation = path.join(__dirname, '../views');
 app.use(express.static(pathLoacation));
 app.set('view engine', 'hbs');
 app.get('', (req, res) => {
-    res.render('index');
+    res.render('index'); 
 });
 app.get('/about', (rea, res) => {
     res.send('<h1>About Page <h1>')
