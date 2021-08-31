@@ -11,15 +11,32 @@ hbs.registerPartials(pathPartial);
 app.get('', (req, res) => {
     res.render('index', {
         title: 'Weather App',
-        page: 'Home'
+        page: 'Home',
+        name:'Anurag'
     });
 });
 app.get('/about', (rea, res) => {
     res.render('about', {
         title: 'About',
-        page: 'About'
+        page: 'About',
+        name:'Sunny'
     });
 });
+app.get('/help',(err, res)=>{
+    res.render('help', {
+        title:'help',
+        page:'Help',
+        name:'Akt'
+    });
+});
+
+app.get('/help/*',(req,res)=>{
+    res.send('Nothing inside Help for search')
+});
+app.get('*', (req,res)=>{
+    res.send('4O4 page');
+});
+
 app.listen(3000, () => {
     console.log('Runing on port 3000');
-})
+});
