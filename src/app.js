@@ -1,22 +1,23 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const hbs = require('hbs')
 const viewPath = path.join(__dirname, './templates');
-// const pathLoacation = path.join(__dirname, '../views');
-
+const pathPartial = path.join(__dirname, './partial');
 app.use(express.static(viewPath));
 app.set('view engine', 'hbs');
 app.set('views', viewPath);
+hbs.registerPartials(pathPartial);
 app.get('', (req, res) => {
     res.render('index', {
         title: 'Weather App',
-        page: 'Home page'
+        page: 'Home'
     });
 });
 app.get('/about', (rea, res) => {
     res.render('about', {
         title: 'About',
-        About: 'About'
+        page: 'About'
     });
 });
 app.listen(3000, () => {
